@@ -2,48 +2,40 @@
 
 ## Contents
 ### Phase A — Foundations (Weeks 1–3)
-• A.1 What SCAPS-1D is, in one paragraph
-• A.2 Getting the software
-• A.3 The cell you will build
-• A.4 The baseline parameter set
-• A.5 Building the cell, click by click
-• A.6 Your first calculation
-• A.7 Calibration — the step that makes it publishable
+- A.1 What SCAPS-1D is, in one paragraph
+- A.2 Getting the software
+- A.3 The cell you will build
+- A.4 The baseline parameter set
+- A.5 Building the cell, click by click
+- A.6 Your first calculation
+- A.7 Calibration — the step that makes it publishable
 ### Phase B — Single-parameter studies (Weeks 4–7)
-• B.1 Study 1 — Absorber thickness
-• B.2 Study 2 — Bulk defect density (the most important study)
-• B.3 Study 3 — Absorber doping
-• B.4 Study 4 — Operating temperature
+- B.1 Study 1 — Absorber thickness
+- B.2 Study 2 — Bulk defect density (the most important study)
+- B.3 Study 3 — Absorber doping
+- B.4 Study 4 — Operating temperature
 ### Phase C — Optimisation and publication (Weeks 8–12)
-• C.1 Study 5 — Transport-layer (band-alignment) screening
-• C.2 Study 6 — Interface defects: bulk vs interface recombination
-• C.3 Study 7 — Coupled two-parameter optimisation
-• C.4 Assemble and validate the optimised cell
-• C.5 Writing the manuscript
+- C.1 Study 5 — Transport-layer (band-alignment) screening
+- C.2 Study 6 — Interface defects: bulk vs interface recombination
+- C.3 Study 7 — Coupled two-parameter optimisation
+- C.4 Assemble and validate the optimised cell
+- C.5 Writing the manuscript
 
-A.1 What SCAPS-1D is, in one paragraph
+##### A.1 What SCAPS-1D is, in one paragraph
 SCAPS-1D is a free one-dimensional solar-cell simulator from the University of Gent. You describe a stack
 of semiconductor layers and their material properties, shine a standard sunlight spectrum on it, and the
 program solves the semiconductor equations to predict the current-voltage (J–V) curve and the four
 performance numbers. It is the standard tool for thin-film and perovskite device design because it is
 fast, free, and matches experiment well when the input parameters are chosen carefully.
 
-If you are preparing a **research paper, dissertation, or repository documentation**, the material description should go beyond bullet points and explain *why each material is chosen, how it functions, and how its properties influence the photovoltaic behavior of the device*. The **TiO₂/MAPbI₃/Spiro-OMeTAD** configuration is among the most extensively investigated n-i-p planar perovskite solar cell architectures and serves as a benchmark structure for many simulation and experimental studies.
 
 ![Image](https://images.openai.com/static-rsc-4/Sl-tuuWh4px3_iWUjN747G4iaF95Y_4xzXjWKdZZtvb2yHgqwTb_VpKbuMGjwbkuqAPOcvI0xJrgtA5yP82991arN3t9FLb59w40YW5QmRutIg24gRBk4Y7dAWOgxLzSSLcW7i1IT0uZ-bfX9yoiRkRvFipH6mQS5BlSdSPL23SYMR9IYYnhnPWKGS4ITmqT?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/XjiCfsYIdzfLE8hEqi61GBR_ZcxUs1YMujK8QHpT7q-muWnYO54Ntk07TofvLoCRDCBvM6bVAt_mi-DjZKonrOb0tb1f4JbMUN_qOKKKTv47kS_phCU4yMvaXcpUTFWYHV6SZyK5B-UMfeBQm69ntWL6K3O5gc1HppazK6mSqFGTcN2BV99LYrkSr40y-8-3?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/-OZo6xHMhNCrIphY4YStIetGa_i7xhjrS2Fg1Gt6GWjLL-73P7zTyXJ-dF6-yaQmeGUglQUIVsyMGUgCKdH2fn6SZFGC06u5q9kYSjmWNMn4SkIRdY6t4cU7UyhkTcnKcjyutu9ThFYDw_KnKZ-gTfo64e8AqvqJdrlPWZd5fjC29Nu1rPo-MRsUE1escLKp?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/ZxViMpDz-nK5C7tvCfJygsluuVp7RuSiXmEAQTwkM41PJzR4jotA5k2g66oXxZ2sHQhbICEycpvTHbcJoABhfSNWTWAYsi8YxMb9J--vaMPqMaUaEaDjOHNZ_NPUd3C893NfshJc2KC2DOVVBp85SYVX6RbevW5b_bIvv8_wMiVg7Nn91ripFm2amXjU25Ub?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/2cHxN08mTCkglZRlynoOcQkPKu7znKWK9PlzTrT8Ch_B7e42jLfMW8J9nvuDiAW9i2Mqf6yNzJN9T5xh_MzyW42JHLLSHqT7nKkQPXQzsGTBlOlFF-D68bKhLTahru_gRssG8FZ7TKN9mA0qdxM8yFZ91_h4A8kX7Lm7rLjYP7i995zqdizzvyWV46z5TqIm?purpose=fullsize)
 
 ---
 
 # Material System of TiO₂/MAPbI₃/Spiro-OMeTAD Perovskite Solar Cell
-why each material is chosen, how it functions, and how its properties influence the photovoltaic behavior of the device.
+- why each material is chosen, how it functions, and how its properties influence the photovoltaic behavior of the device.
+  
 The selection of materials in a perovskite solar cell plays a crucial role in determining device efficiency and stability. Although numerous electron transport layers (ETLs), absorber materials, and hole transport layers (HTLs) have been investigated, the combination of TiO₂, MAPbI₃, and Spiro-OMeTAD remains one of the most extensively studied and experimentally validated architectures. This configuration has served as a benchmark structure for both experimental investigations and numerical simulations because of its favorable band alignment, efficient charge transport, and availability of well-established material parameters.
 The perovskite solar cell structure consisting of titanium dioxide (TiO₂), methylammonium lead iodide (MAPbI₃), and Spiro-OMeTAD has attracted significant attention due to its remarkable power conversion efficiency and relatively simple fabrication process. In this architecture, each layer performs a specific function that contributes to efficient charge generation, charge transport, and suppression of carrier recombination losses.
 
