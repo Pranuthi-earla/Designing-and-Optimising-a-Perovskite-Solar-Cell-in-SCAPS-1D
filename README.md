@@ -33,7 +33,7 @@ fast, free, and matches experiment well when the input parameters are chosen car
 
 ---
 
-# Material System of TiO₂/MAPbI₃/Spiro-OMeTAD Perovskite Solar Cell
+#### Material System of TiO₂/MAPbI₃/Spiro-OMeTAD Perovskite Solar Cell
 - why each material is chosen, how it functions, and how its properties influence the photovoltaic behavior of the device.
   
 The selection of materials in a perovskite solar cell plays a crucial role in determining device efficiency and stability. Although numerous electron transport layers (ETLs), absorber materials, and hole transport layers (HTLs) have been investigated, the combination of TiO₂, MAPbI₃, and Spiro-OMeTAD remains one of the most extensively studied and experimentally validated architectures. This configuration has served as a benchmark structure for both experimental investigations and numerical simulations because of its favorable band alignment, efficient charge transport, and availability of well-established material parameters.
