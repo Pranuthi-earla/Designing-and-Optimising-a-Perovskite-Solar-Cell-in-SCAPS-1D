@@ -1,5 +1,5 @@
 # Designing-and-Optimising-a-Perovskite-Solar-Cell-in-SCAPS-1D
-
+11-june- day1
 ## Contents
 ### Phase A — Foundations (Weeks 1–3)
 - A.1 What SCAPS-1D is, in one paragraph
@@ -146,6 +146,7 @@ The TiO₂/MAPbI₃/Spiro-OMeTAD system is frequently adopted as a reference str
 
 Therefore, this material combination serves as an ideal platform for investigating the influence of layer thickness, defect density, carrier concentration, interface properties, and temperature effects on the photovoltaic performance of perovskite solar cells.
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------
+12-jun-day 2
 
 
