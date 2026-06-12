@@ -148,5 +148,11 @@ Therefore, this material combination serves as an ideal platform for investigati
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 12-jun-day 2
+- Layer-by-Layer Function & Band Alignment
+- FTO (Front Contact): Fluorine-doped Tin Oxide (FTO) coated on glass is the transparent conducting substrate. It allows sunlight to enter the cell while serving as the negative electrode.
+- TiO₂ (ETL): Titanium Dioxide acts as the Electron Transport Layer, extracting electrons from the perovskite while blocking holes. Its conduction band (CBM ≈ -4.0 eV) aligns perfectly to extract electrons smoothly from MAPbI₃.
+- MAPbI₃ (Absorber): Methylammonium Lead Iodide is the photoactive layer. With an optimal bandgap of ≈ 1.55 eV, it absorbs visible light and generates free electron-hole pairs.
+- Spiro-OMeTAD (HTL): This organic semiconductor acts as the Hole Transport Layer. It extracts holes from the perovskite (VBM ≈ -5.2 eV) while blocking electrons. It is almost universally doped with additives like Li-TFSI and 4-tert-butylpyridine (tBP) to boost conductivity.
+- Au (Back Contact): Gold is thermally evaporated on top of the HTL to collect the holes and act as the positive electrode.
 
 
