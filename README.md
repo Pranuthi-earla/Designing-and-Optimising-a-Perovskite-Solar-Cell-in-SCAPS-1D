@@ -155,4 +155,47 @@ Therefore, this material combination serves as an ideal platform for investigati
 - Spiro-OMeTAD (HTL): This organic semiconductor acts as the Hole Transport Layer. It extracts holes from the perovskite (VBM ≈ -5.2 eV) while blocking electrons. It is almost universally doped with additives like Li-TFSI and 4-tert-butylpyridine (tBP) to boost conductivity.
 - Au (Back Contact): Gold is thermally evaporated on top of the HTL to collect the holes and act as the positive electrode.
 
+---------------------------
+
+## Day 3 — Report entry
+
+**Date:** 19–20 June 2026
+**Objective:** Build the baseline FTO/TiO₂/MAPbI₃/Spiro-OMeTAD/Au layer stack in SCAPS 3.3.10 per NAMTECH Handbook §A.4–A.5.
+
+**Procedure followed:**
+1. Opened Set Problem → Solar Cell Definition panel.
+2. Added three layers — TiO2, MAPbI3, Spiro — with parameters entered per the baseline table (full values below).
+3. Encountered an error: clicking "Invert the structure" caused layer data to reset to blank generic layers ("layer 1/2/3"), which was inadvertently auto-saved. Identified and corrected by starting a **new** problem and re-adding all three layers manually in the correct order (TiO2 → MAPbI3 → Spiro), avoiding the Invert function entirely.
+4. Verified layer order: **left contact (front) → TiO₂ → MAPbI₃ → Spiro → right contact (back)**.
+5. Set **illuminated from: left**, confirmed visually via the light-ray diagram entering the TiO₂ side.
+6. Saved as `baseline.def`.
+
+**Parameters entered:**
+
+| Parameter | TiO₂ | MAPbI₃ | Spiro |
+|---|---|---|---|
+| Thickness (nm) | 50 | 400 | 200 |
+| Eg (eV) | 3.2 | 1.55 | 3.0 |
+| χ (eV) | 4.0 | 3.9 | 2.2 |
+| εr | 9 | 6.5 | 3 |
+| NC (cm⁻³) | 2.2×10¹⁸ | 2.2×10¹⁸ | 2.2×10¹⁸ |
+| NV (cm⁻³) | 1.8×10¹⁹ | 1.8×10¹⁹ | 1.8×10¹⁹ |
+| μn (cm²/Vs) | 20 | 2 | 2×10⁻⁴ |
+| μp (cm²/Vs) | 10 | 2 | 2×10⁻⁴ |
+| ND (cm⁻³) | 1×10¹⁷ | 0 | 0 |
+| NA (cm⁻³) | 0 | 1×10¹⁶ | 1×10¹⁸ |
+| Nt (cm⁻³) | 1×10¹⁵, neutral, mid-gap | 1×10¹⁵, neutral, mid-gap | 1×10¹⁵, neutral, mid-gap |
+
+Source: NAMTECH Handbook (rev. 2), Table A.4; values consistent with standard literature MAPbI₃ device parameters (e.g. Saliba et al., *Science* 2016).
+
+**Issues encountered & fixes:**
+- TiO2 layer initially had incorrect ND (1×10¹⁶ instead of 1×10¹⁷) and nonzero NA (should be 0) — corrected.
+- Spiro layer initially had incorrect NV (2.18×10²⁰ instead of 1.8×10¹⁹) — corrected.
+- "Invert the structure" caused full layer-data loss — avoided this function; rebuilt layer-by-layer with correct order/illumination set manually instead.
+
+**Result:** `baseline.def` saved successfully at 20-6-2026, 00:22:23. No calculation run yet (reserved for Day 6–7).
+
+**Next steps:** Day 4–5 — final review pass; confirm absorption model and defect settings once more in each layer before Day 6's first calculation.
+
+---
 
