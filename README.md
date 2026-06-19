@@ -169,6 +169,12 @@ Therefore, this material combination serves as an ideal platform for investigati
 4. Verified layer order: **left contact (front) → TiO₂ → MAPbI₃ → Spiro → right contact (back)**.
 5. Set **illuminated from: left**, confirmed visually via the light-ray diagram entering the TiO₂ side.
 6. Saved as `baseline.def`.
+<img width="1511" height="804" alt="image" src="https://github.com/user-attachments/assets/0ba479ba-b5bc-424d-ac37-67bd20f90835" />
+
+<img width="1511" height="828" alt="image" src="https://github.com/user-attachments/assets/12428a42-2883-45b1-beb2-ad19e05fa69f" />
+<img width="1511" height="817" alt="image" src="https://github.com/user-attachments/assets/a73c07d8-7dc5-4a54-a734-96f53d039518" />
+
+
 
 **Parameters entered:**
 
@@ -191,7 +197,15 @@ Source: NAMTECH Handbook (rev. 2), Table A.4; values consistent with standard li
 **Issues encountered & fixes:**
 - TiO2 layer initially had incorrect ND (1×10¹⁶ instead of 1×10¹⁷) and nonzero NA (should be 0) — corrected.
 - Spiro layer initially had incorrect NV (2.18×10²⁰ instead of 1.8×10¹⁹) — corrected.
-- "Invert the structure" caused full layer-data loss — avoided this function; rebuilt layer-by-layer with correct order/illumination set manually instead.
+- "Invert the structure" caused full layer-data loss — avoided this function;
+  data lost
+<img width="1092" height="707" alt="Screenshot 2026-06-20 000834" src="https://github.com/user-attachments/assets/ebf20693-9dcc-42a4-995b-39bd41440584" />
+rebuilt layer-by-layer with correct order/illumination set manually instead.
+<img width="1370" height="883" alt="image" src="https://github.com/user-attachments/assets/783cf661-b6b5-4688-9557-790c4f21e0b7" />
+
+<img width="1354" height="884" alt="image" src="https://github.com/user-attachments/assets/ab7a1b4e-5540-4adc-917f-3b3051e275f2" />
+
+
 
 **Result:** `baseline.def` saved successfully at 20-6-2026, 00:22:23. No calculation run yet (reserved for Day 6–7).
 
