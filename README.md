@@ -213,6 +213,25 @@ rebuilt layer-by-layer with correct order/illumination set manually instead.
 
 ---
 -----------------------
+
+## Day 6 — Report entry (diagnosis in progress)
+
+**Date:** 20 June 2026
+**Objective:** Run first I–V calculation on baseline.def and obtain Jsc/Voc/FF/η.
+
+**Procedure & issues encountered:**
+1. Initial run was in **dark mode** — corrected by switching Illumination to Light.
+2. With light on, Jsc read correctly: **22.224 mA/cm²** (within expected 22–24 range) — confirms illumination, absorption, and photogeneration are working correctly.
+3. J–V curve does not roll over — stays flat at Jsc across the entire sweep, with a **convergence failure consistently at V = 0.78–0.80 V**, regardless of step size (tried 0.02, 0.01, 0.005 V) or sweep range.
+4. Starting the sweep cold at 0.9 V fails immediately — confirms SCAPS' stepwise solver relies on the previous point's solution; this is expected behaviour and not itself the bug.
+5. **Ruled out so far:** all layer parameters (re-verified), contact settings (default, untouched), illumination direction (left, consistent across panels), numerical solver settings (stock defaults, reasonable), MAPbI₃ defect charge type (neutral, correct), Spiro NV (corrected to 1.8E19, confirmed), TiO₂ and Spiro defect capture cross-sections (both 1.000E-15 cm², correct).
+
+**Current conclusion:** This is a genuine, reproducible physical/numerical instability at ~0.78–0.80 V, not a sweep-setting artifact. Actual Voc is likely well below the handbook's expected 1.0–1.1 V — possibly the cell's real Voc *is* around 0.78 V and the solver is failing right at the point it should be rolling over, or there's still one parameter causing an unstable junction.
+
+**Next diagnostic step:** Check MAPbI₃'s own defect capture cross-sections (we've checked TiO₂ and Spiro, but not the absorber's defect itself) — this is the one defect we haven't directly verified the σn/σp values for yet.
+
+---
+
 <img width="1511" height="827" alt="image" src="https://github.com/user-attachments/assets/bd8ea948-bf9d-44c2-933f-e075294a0a3c" />
 <img width="1511" height="845" alt="image" src="https://github.com/user-attachments/assets/68332fe3-e6eb-4432-bc7c-3ddf8b5ce79a" />
 
