@@ -212,4 +212,8 @@ rebuilt layer-by-layer with correct order/illumination set manually instead.
 **Next steps:** Day 4–5 — final review pass; confirm absorption model and defect settings once more in each layer before Day 6's first calculation.
 
 ---
+-----------------------
+<img width="1511" height="827" alt="image" src="https://github.com/user-attachments/assets/bd8ea948-bf9d-44c2-933f-e075294a0a3c" />
+<img width="1511" height="845" alt="image" src="https://github.com/user-attachments/assets/68332fe3-e6eb-4432-bc7c-3ddf8b5ce79a" />
+
 
