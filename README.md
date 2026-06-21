@@ -236,3 +236,28 @@ rebuilt layer-by-layer with correct order/illumination set manually instead.
 <img width="1511" height="845" alt="image" src="https://github.com/user-attachments/assets/68332fe3-e6eb-4432-bc7c-3ddf8b5ce79a" />
 
 
+## Day 6 — Final report entry
+
+**Date:** 20–21 June 2026
+**Objective:** Obtain baseline J–V curve and Jsc/Voc/FF/η.
+
+**Root cause of convergence failure (resolved):** Action Panel setting "current reference as a" was set to **consumer** instead of **generator**. This sign-convention mismatch caused the solver to fail at high forward bias (~0.78–0.80 V) regardless of layer parameters, defect settings, contacts, or numerical solver tolerances — all of which were independently verified correct beforehand.
+
+**Fix applied:** Changed "current reference as a" to **generator**. Reran I–V sweep, V1 = 0 V, V2 = 1.2 V.
+
+**Result — baseline parameters:**
+
+| Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
+|---|---|---|---|
+| 22.224 | 1.1214 | 80.20 | 19.99 |
+
+All four values fall within the handbook's expected ranges (Jsc 22–24, Voc 1.0–1.1, FF 75–82, η 18–22). Baseline is **verified correct and complete**.
+
+
+<img width="1277" height="705" alt="image" src="https://github.com/user-attachments/assets/5a84309c-ece8-4644-a967-729f1ef74bac" />
+
+<img width="1267" height="700" alt="image" src="https://github.com/user-attachments/assets/0ce8638a-e559-41df-a3cd-4b914d015119" />
+
+Cite this paper explicitly in your related-work paragraph with a one-line differentiation, something like: "While prior SCAPS-based studies (e.g., Kumar & Gorai) examine defect-driven degradation across different perovskite compositions, this work instead compares multiple distinct degradation mechanisms within a single device and ranks them by impact, concluding with a prioritized mitigation recommendation." That's an honest, defensible novelty statement — narrow but real.
+-Elucidating the Effect of Defect Density in the Degradation of Methylammonium Lead Iodide and Triple Cation-Based Perovskite Solar Cells
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
