@@ -424,7 +424,7 @@ Note on thickness optimum: Efficiency rose monotonically from 200–1000 nm, the
 
 **Next step:** Study 2 — bulk defect density sweep, using either 400 nm (handbook default) or 1000 nm (your current best) as the fixed thickness.
 
----
+---------------------
 B.2 Study 2 — **Bulk defect density (the most important study)**
 
 
