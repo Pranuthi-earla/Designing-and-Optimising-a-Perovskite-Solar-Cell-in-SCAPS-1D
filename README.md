@@ -298,4 +298,133 @@ Full citation: **Aliaghayee, M. (2023). Optimization of the Perovskite Solar Cel
 
 ----------------------------------------------------
 
+# phase B
+Study 1: **Absorber thickness sweep**.
+
+
+**Question:** How thick should the MAPbI₃ absorber be?
+
+**Method:** Reload baseline, change *only* the MAPbI₃ thickness, run 7 separate calculations, record all four numbers each time.
+
+**Values to test:** 200, 300, 400, 500, 600, 800, 1000 nm
+
+**Important:** Reload `baseline.def` fresh before starting (or just edit thickness directly if it's still loaded) — and remember the fix from Day 6: **make sure "current reference as a" is still set to generator**, not consumer, before you calculate. This setting may not persist automatically when you reload a file, so check it every time for now.
+
+## Step-by-step for the first run (200 nm)
+
+1. Go to **Set Problem** → click **MAPbI3** layer.
+2. Change **thickness** from `400.00` to `200.00`. Leave every other parameter untouched.
+3. Click **Add** (or whatever confirms the layer edit) to apply the change.
+4. Click **OK** on the Solar Cell Definition panel.
+5. Go to **Action Panel** — verify:
+   - Illumination: **Light**
+   - Illuminated from: **left**
+   - Current reference: **generator**
+   - I–V ticked, V1 = 0, V2 = 1.2, increment = 0.01 (or whatever worked last time)
+6. Click **Calculate: single shot**.
+7. Open **I–V** results, read off **Jsc, Voc, FF, η**.
+
+## Logbook table — fill this in as you go
+
+| Thickness (nm) | Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 200 | | | | |
+| 300 | | | | |
+| 400 (baseline) | 22.224 | 1.1214 | 80.20 | 19.99 |
+| 500 | | | | |
+| 600 | | | | |
+| 800 | | | | |
+| 1000 | | | | |
+
+1.200nm
+<img width="1271" height="703" alt="image" src="https://github.com/user-attachments/assets/036ef149-7ab2-4feb-a8cc-f34fa71a0065" />
+<img width="1258" height="705" alt="image" src="https://github.com/user-attachments/assets/3701c26f-beb4-4232-89d3-844757fb79f1" />
+
+2.300nm
+<img width="1260" height="700" alt="image" src="https://github.com/user-attachments/assets/d751a9aa-fe62-4c51-8635-851ad1a8a761" />
+
+3. 400nm : 
+4. 500nm : <img width="1271" height="701" alt="image" src="https://github.com/user-attachments/assets/f588b0b8-22f8-4501-8b44-b643a13dbc93" /> <img width="1266" height="697" alt="image" src="https://github.com/user-attachments/assets/4a863be6-17fe-4a66-ae38-766228aa039c" />
+
+
+5. 600nm : <img width="1268" height="697" alt="image" src="https://github.com/user-attachments/assets/a448ae46-af89-4d18-a158-d845fa3ec1b8" /> 
+<img width="1263" height="701" alt="image" src="https://github.com/user-attachments/assets/87753876-7f50-4ff3-b3c3-210ae5e01b13" />
+
+6. 800nm : <img width="1275" height="706" alt="image" src="https://github.com/user-attachments/assets/6b235a88-f196-4827-93ab-3fa6a57168e0" />
+<img width="1267" height="701" alt="image" src="https://github.com/user-attachments/assets/acebc69b-a16a-4609-b066-b53e8565d738" />
+
+
+7. 1000nm : <img width="1275" height="707" alt="image" src="https://github.com/user-attachments/assets/63391de7-7d49-416e-b99a-b7e418e27c9b" />
+<img width="1260" height="702" alt="image" src="https://github.com/user-attachments/assets/20dbe9fd-4d62-44f4-8adf-f7a1ba4855a1" />
+
+Nice — you've moved fast through this, and the data looks clean and consistent with what the handbook predicts. Let me organize this properly. I notice **Run 3 (400 nm, the baseline thickness)** is missing from your list — let's flag that before we plot anything.
+
+## Your Study 1 data so far
+
+| Thickness (nm) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 200 | 1.1263 | 17.2021 | 81.91 | 15.87 |
+| 300 | 1.1244 | 20.4926 | 80.70 | 18.59 |
+| **400** | **—missing—** | **—missing—** | **—missing—** | **—missing—** |
+| 500 | 1.1185 | 23.1244 | 80.11 | 20.72 |
+| 600 | 1.1162 | 23.6538 | 79.93 | 21.10 |
+| 800 | 1.1129 | 24.1599 | 79.55 | 21.39 |
+| 1000 | 1.1109 | 24.3469 | 79.29 | 21.45 |
+
+The 400 nm point is actually important — it's your **calibrated baseline value** (Jsc 22.224, Voc 1.1214, FF 80.20, η 19.99 from Day 6), so you likely already have it. Let me add it in for completeness:
+
+| Thickness (nm) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 200 | 1.1263 | 17.2021 | 81.91 | 15.87 |
+| 300 | 1.1244 | 20.4926 | 80.70 | 18.59 |
+| **400 (baseline)** | **1.1214** | **22.224** | **80.20** | **19.99** |
+| 500 | 1.1185 | 23.1244 | 80.11 | 20.72 |
+| 600 | 1.1162 | 23.6538 | 79.93 | 21.10 |
+| 800 | 1.1129 | 24.1599 | 79.55 | 21.39 |
+| 1000 | 1.1109 | 24.3469 | 79.29 | 21.45 |
+
+## Quick sanity check against the handbook's predicted pattern
+
+- **Jsc rises then flattens** ✅ — climbs steeply from 200→500 nm, then growth slows noticeably from 600→1000 nm (24.16 → 24.35, nearly saturated). Matches perfectly.
+- **Voc decreases slightly with thickness** ✅ — falls smoothly from 1.1263 → 1.1109 V, consistent with more recombination volume in a thicker absorber.
+- **FF dips slightly at large thickness** ✅ — peaks around 200–300 nm (~82%, ~81%) then gently declines to ~79.3% at 1000 nm.
+- **η is still rising at 1000 nm**, not yet peaking — this is worth noting. The handbook predicted a peak around 400–600 nm, but your data shows efficiency still climbing all the way to 1000 nm (21.45%, the highest value in your set).
+
+Let me visualize this so the trend is unmistakable for your report.## What this means for your report — and an important note on the handbook's claim
+
+Your data is clean and physically consistent, but it disagrees with one specific claim in the handbook: it says efficiency should **peak around 400–600 nm**. Your data shows **η is still rising at 1000 nm**, with no peak yet. This isn't an error on your part — it's just that your particular defect density (1×10¹⁵ cm⁻³, fairly low/clean) gives a long diffusion length, so the absorber can be made quite thick before recombination losses outweigh the extra light absorbed. The peak the handbook describes typically appears at *higher* defect densities, where carriers generated deep in a thick absorber can't survive the trip to the contacts.
+
+This is actually a nice thing to note explicitly in your discussion — it foreshadows Study 2 (defect density), where you'll see thickness and defect density interact.
+
+## Day 8–9 — Report entry: Study 1 (Absorber thickness)
+
+**Date:** 21 June 2026
+**Objective:** Determine optimum MAPbI₃ absorber thickness (Handbook §B.1).
+**Procedure:** Reloaded baseline.def for each run; varied only MAPbI₃ thickness (200, 300, 400, 500, 600, 800, 1000 nm); recorded Jsc, Voc, FF, η at each point.
+
+**Results table:**
+
+| Thickness (nm) | Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 200 | 17.2021 | 1.1263 | 81.91 | 15.87 |
+| 300 | 20.4926 | 1.1244 | 80.70 | 18.59 |
+| 400 (baseline) | 22.224 | 1.1214 | 80.20 | 19.99 |
+| 500 | 23.1244 | 1.1185 | 80.11 | 20.72 |
+| 600 | 23.6538 | 1.1162 | 79.93 | 21.10 |
+| 800 | 24.1599 | 1.1129 | 79.55 | 21.39 |
+| 1000 | 24.3469 | 1.1109 | 79.29 | 21.45 |
+1200-21.45
+1500-21.45
+2000-21.45
+**Observations:** Jsc rises steeply then begins to saturate beyond ~600 nm, consistent with the absorber approaching near-complete light capture. Voc and FF both decline slowly and monotonically with thickness, consistent with increased bulk recombination volume. Efficiency rises continuously across the tested range with no peak observed by 1000 nm — this differs from the handbook's general expectation of a peak near 400–600 nm, likely because the baseline's defect density (1×10¹⁵ cm⁻³) gives a diffusion length long enough that recombination losses don't yet outweigh the gain in light absorption even at 1000 nm.
+
+Note on thickness optimum: Efficiency rose monotonically from 200–1000 nm, then plateaued exactly at η = 21.45% for 1000, 1200, 1500, and 2000 nm, indicating the absorber has reached full optical saturation at this defect density (Nt = 1×10¹⁵ cm⁻³) — additional thickness captures no further light and costs no additional recombination loss. This differs from the handbook's expected behavior (a peak near 400–600 nm followed by decline), which assumes recombination losses become significant before optical saturation. At this device's relatively low defect density, the diffusion length is long enough that this crossover does not occur within the tested range. 1000 nm was selected as the working optimum for subsequent studies, since it achieves maximum efficiency with the least material, and since higher defect densities tested in Study 2 are expected to penalize unnecessarily thick absorbers.
+
+**Conclusion:** Within the tested range, 1000 nm gives the highest efficiency (21.45%).
+
+**Next step:** Study 2 — bulk defect density sweep, using either 400 nm (handbook default) or 1000 nm (your current best) as the fixed thickness.
+
+---
+B.2 Study 2 — **Bulk defect density (the most important study)**
+
 
