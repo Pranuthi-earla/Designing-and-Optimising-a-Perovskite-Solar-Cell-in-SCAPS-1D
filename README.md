@@ -28,11 +28,9 @@ program solves the semiconductor equations to predict the current-voltage (J–V
 performance numbers. It is the standard tool for thin-film and perovskite device design because it is
 fast, free, and matches experiment well when the input parameters are chosen carefully.
 
-
 ![Image](https://images.openai.com/static-rsc-4/Sl-tuuWh4px3_iWUjN747G4iaF95Y_4xzXjWKdZZtvb2yHgqwTb_VpKbuMGjwbkuqAPOcvI0xJrgtA5yP82991arN3t9FLb59w40YW5QmRutIg24gRBk4Y7dAWOgxLzSSLcW7i1IT0uZ-bfX9yoiRkRvFipH6mQS5BlSdSPL23SYMR9IYYnhnPWKGS4ITmqT?purpose=fullsize)
 
 ---
-
 #### Material System of TiO₂/MAPbI₃/Spiro-OMeTAD Perovskite Solar Cell
 - why each material is chosen, how it functions, and how its properties influence the photovoltaic behavior of the device.
   
@@ -40,7 +38,6 @@ The selection of materials in a perovskite solar cell plays a crucial role in de
 The perovskite solar cell structure consisting of titanium dioxide (TiO₂), methylammonium lead iodide (MAPbI₃), and Spiro-OMeTAD has attracted significant attention due to its remarkable power conversion efficiency and relatively simple fabrication process. In this architecture, each layer performs a specific function that contributes to efficient charge generation, charge transport, and suppression of carrier recombination losses.
 
 The complete device structure generally consists of:
-
 **FTO/TiO₂/MAPbI₃/Spiro-OMeTAD/Au**
 
 where fluorine-doped tin oxide (FTO) acts as the transparent front electrode and gold (Au) serves as the back contact.
@@ -59,17 +56,6 @@ The conduction band minimum of TiO₂ lies close to that of MAPbI₃, which faci
 
 Another advantage of TiO₂ is its excellent chemical stability and ease of preparation through techniques such as spray pyrolysis, spin coating, and chemical bath deposition. However, TiO₂ possesses relatively low electron mobility compared with alternative ETL materials such as SnO₂. Moreover, trap states and ultraviolet-induced photocatalytic activity can induce performance degradation and hysteresis effects in perovskite devices.
 
-Typical properties of TiO₂ used in simulation studies are:
-
-| Parameter             | Value      |
-| --------------------- | ---------- |
-| Bandgap               | 3.2 eV     |
-| Electron affinity     | 4.0 eV     |
-| Relative permittivity | 9          |
-| Electron mobility     | 20 cm²/V·s |
-| Donor concentration   | 10¹⁸ cm⁻³  |
-| Thickness             | 30–100 nm  |
-
 ---
 
 # MAPbI₃ as the Light-Absorbing Layer
@@ -86,18 +72,6 @@ Upon illumination, photons absorbed by MAPbI₃ generate electron-hole pairs. El
 
 Despite its outstanding optoelectronic properties, MAPbI₃ suffers from several limitations. The material is highly sensitive to moisture, oxygen, heat, and ultraviolet radiation. These factors can induce decomposition and reduce long-term device stability. Furthermore, the presence of lead raises environmental concerns and motivates ongoing research into lead-free alternatives.
 
-Typical simulation parameters for MAPbI₃ are:
-
-| Parameter             | Value         |
-| --------------------- | ------------- |
-| Bandgap               | 1.55 eV       |
-| Electron affinity     | 3.9 eV        |
-| Relative permittivity | 6.5–10        |
-| Electron mobility     | 10 cm²/V·s    |
-| Hole mobility         | 10 cm²/V·s    |
-| Carrier concentration | 10⁹–10¹⁰ cm⁻³ |
-| Thickness             | 300–700 nm    |
-
 ---
 
 # Spiro-OMeTAD as Hole Transport Layer
@@ -111,17 +85,6 @@ The HOMO energy level of Spiro-OMeTAD aligns well with the valence band maximum 
 Although pristine Spiro-OMeTAD possesses relatively low conductivity, its electrical properties can be significantly improved through p-type doping using additives such as lithium bis(trifluoromethanesulfonyl)imide (Li-TFSI) and 4-tert-butylpyridine (tBP). These dopants increase hole mobility and conductivity, resulting in improved charge transport and higher power conversion efficiency.
 
 However, Spiro-OMeTAD is expensive and exhibits hygroscopic behavior because of the dopants employed. Moisture absorption can accelerate device degradation and limit long-term stability. These drawbacks have stimulated extensive research into alternative hole transport materials, including CuSCN, NiOₓ, PTAA, and CuI.
-
-Typical parameters used in SCAPS simulations are:
-
-| Parameter              | Value            |
-| ---------------------- | ---------------- |
-| Bandgap                | 3.0 eV           |
-| Electron affinity      | 2.2 eV           |
-| Relative permittivity  | 3                |
-| Hole mobility          | 2 × 10⁻⁴ cm²/V·s |
-| Acceptor concentration | 10¹⁸ cm⁻³        |
-| Thickness              | 100–250 nm       |
 
 ---
 
@@ -263,7 +226,7 @@ All four values fall within the handbook's expected ranges (Jsc 22–24, Voc 1.0
 -Elucidating the Effect of Defect Density in the Degradation of Methylammonium Lead Iodide and Triple Cation-Based Perovskite Solar Cells
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
 
-| Their paper | Your project |
+| Their paper | my project |
 |---|---|
 | Single pathway: **bulk + interface defect density** only | **Four pathways**: bulk defects, interface defects, series resistance, shunt resistance |
 | Compares **two materials** (MAPbI₃ vs. triple-cation) on the *same* defect mechanism | Compares **four different loss mechanisms** on the *same* material |
@@ -276,11 +239,11 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
 # Day 7 report entry
 
 
-##  comparison — your baseline vs. this paper's Table V
+##  comparison —  baseline vs. reference paper's Table V
 
 **Calibration.** The simulated baseline was compared against an experimental glass/FTO/TiO₂/MAPbI₃/Spiro-OMeTAD/Au perovskite solar cell reported by Aliaghayee (2023), which is structurally identical to the device modeled in this work. The experimental device achieved Jsc = 23.31 mA/cm², Voc = 1.172 V, FF = 76.51%, and η = 20.90%. The simulated baseline in this study yielded Jsc = 22.224 mA/cm² (−4.7%), Voc = 1.1214 V (−4.3%), FF = 80.20% (+4.8%), and η = 19.99% (−4.4%) relative to experiment — all four parameters within 5% of the published value. For reference, Aliaghayee's own SCAPS-1D simulation of the same structure reported Jsc = 22.55 mA/cm², Voc = 1.130 V, FF = 81.15%, η = 20.60%, closely matching the present baseline and providing independent cross-validation of the simulation methodology. This level of agreement confirms the baseline model is well calibrated and suitable as the foundation for the parameter studies in Phase B.
 
-| Parameter | Your simulated baseline | Aliaghayee — Experimental | Aliaghayee — Simulated | Your % diff vs. experimental |
+| Parameter |  simulated baseline | Aliaghayee — Experimental | Aliaghayee — Simulated |  % diff vs. experimental |
 |---|---|---|---|---|
 | Jsc (mA/cm²) | 22.224 | 23.31 | 22.55 | −4.7% |
 | Voc (V) | 1.1214 | 1.172 | 1.130 | −4.3% |
@@ -308,8 +271,6 @@ Study 1: **Absorber thickness sweep**.
 
 **Values to test:** 200, 300, 400, 500, 600, 800, 1000 nm
 
-**Important:** Reload `baseline.def` fresh before starting (or just edit thickness directly if it's still loaded) — and remember the fix from Day 6: **make sure "current reference as a" is still set to generator**, not consumer, before you calculate. This setting may not persist automatically when you reload a file, so check it every time for now.
-
 ## Step-by-step for the first run (200 nm)
 
 1. Go to **Set Problem** → click **MAPbI3** layer.
@@ -324,17 +285,6 @@ Study 1: **Absorber thickness sweep**.
 6. Click **Calculate: single shot**.
 7. Open **I–V** results, read off **Jsc, Voc, FF, η**.
 
-## Logbook table — fill this in as you go
-
-| Thickness (nm) | Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
-|---|---|---|---|---|
-| 200 | | | | |
-| 300 | | | | |
-| 400 (baseline) | 22.224 | 1.1214 | 80.20 | 19.99 |
-| 500 | | | | |
-| 600 | | | | |
-| 800 | | | | |
-| 1000 | | | | |
 
 1.200nm
 <img width="1271" height="703" alt="image" src="https://github.com/user-attachments/assets/036ef149-7ab2-4feb-a8cc-f34fa71a0065" />
@@ -357,45 +307,6 @@ Study 1: **Absorber thickness sweep**.
 7. 1000nm : <img width="1275" height="707" alt="image" src="https://github.com/user-attachments/assets/63391de7-7d49-416e-b99a-b7e418e27c9b" />
 <img width="1260" height="702" alt="image" src="https://github.com/user-attachments/assets/20dbe9fd-4d62-44f4-8adf-f7a1ba4855a1" />
 
-Nice — you've moved fast through this, and the data looks clean and consistent with what the handbook predicts. Let me organize this properly. I notice **Run 3 (400 nm, the baseline thickness)** is missing from your list — let's flag that before we plot anything.
-
-## Your Study 1 data so far
-
-| Thickness (nm) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) |
-|---|---|---|---|---|
-| 200 | 1.1263 | 17.2021 | 81.91 | 15.87 |
-| 300 | 1.1244 | 20.4926 | 80.70 | 18.59 |
-| **400** | **—missing—** | **—missing—** | **—missing—** | **—missing—** |
-| 500 | 1.1185 | 23.1244 | 80.11 | 20.72 |
-| 600 | 1.1162 | 23.6538 | 79.93 | 21.10 |
-| 800 | 1.1129 | 24.1599 | 79.55 | 21.39 |
-| 1000 | 1.1109 | 24.3469 | 79.29 | 21.45 |
-
-The 400 nm point is actually important — it's your **calibrated baseline value** (Jsc 22.224, Voc 1.1214, FF 80.20, η 19.99 from Day 6), so you likely already have it. Let me add it in for completeness:
-
-| Thickness (nm) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) |
-|---|---|---|---|---|
-| 200 | 1.1263 | 17.2021 | 81.91 | 15.87 |
-| 300 | 1.1244 | 20.4926 | 80.70 | 18.59 |
-| **400 (baseline)** | **1.1214** | **22.224** | **80.20** | **19.99** |
-| 500 | 1.1185 | 23.1244 | 80.11 | 20.72 |
-| 600 | 1.1162 | 23.6538 | 79.93 | 21.10 |
-| 800 | 1.1129 | 24.1599 | 79.55 | 21.39 |
-| 1000 | 1.1109 | 24.3469 | 79.29 | 21.45 |
-
-## Quick sanity check against the handbook's predicted pattern
-
-- **Jsc rises then flattens** ✅ — climbs steeply from 200→500 nm, then growth slows noticeably from 600→1000 nm (24.16 → 24.35, nearly saturated). Matches perfectly.
-- **Voc decreases slightly with thickness** ✅ — falls smoothly from 1.1263 → 1.1109 V, consistent with more recombination volume in a thicker absorber.
-- **FF dips slightly at large thickness** ✅ — peaks around 200–300 nm (~82%, ~81%) then gently declines to ~79.3% at 1000 nm.
-- **η is still rising at 1000 nm**, not yet peaking — this is worth noting. The handbook predicted a peak around 400–600 nm, but your data shows efficiency still climbing all the way to 1000 nm (21.45%, the highest value in your set).
-
-Let me visualize this so the trend is unmistakable for your report.## What this means for your report — and an important note on the handbook's claim
-
-Your data is clean and physically consistent, but it disagrees with one specific claim in the handbook: it says efficiency should **peak around 400–600 nm**. Your data shows **η is still rising at 1000 nm**, with no peak yet. This isn't an error on your part — it's just that your particular defect density (1×10¹⁵ cm⁻³, fairly low/clean) gives a long diffusion length, so the absorber can be made quite thick before recombination losses outweigh the extra light absorbed. The peak the handbook describes typically appears at *higher* defect densities, where carriers generated deep in a thick absorber can't survive the trip to the contacts.
-
-This is actually a nice thing to note explicitly in your discussion — it foreshadows Study 2 (defect density), where you'll see thickness and defect density interact.
-
 ## Day 8–9 — Report entry: Study 1 (Absorber thickness)
 
 **Date:** 21 June 2026
@@ -413,16 +324,16 @@ This is actually a nice thing to note explicitly in your discussion — it fores
 | 600 | 23.6538 | 1.1162 | 79.93 | 21.10 |
 | 800 | 24.1599 | 1.1129 | 79.55 | 21.39 |
 | 1000 | 24.3469 | 1.1109 | 79.29 | 21.45 |
-1200-21.45
+1200 - 21.45
 1500-21.45
 2000-21.45
-**Observations:** Jsc rises steeply then begins to saturate beyond ~600 nm, consistent with the absorber approaching near-complete light capture. Voc and FF both decline slowly and monotonically with thickness, consistent with increased bulk recombination volume. Efficiency rises continuously across the tested range with no peak observed by 1000 nm — this differs from the handbook's general expectation of a peak near 400–600 nm, likely because the baseline's defect density (1×10¹⁵ cm⁻³) gives a diffusion length long enough that recombination losses don't yet outweigh the gain in light absorption even at 1000 nm.
 
-Note on thickness optimum: Efficiency rose monotonically from 200–1000 nm, then plateaued exactly at η = 21.45% for 1000, 1200, 1500, and 2000 nm, indicating the absorber has reached full optical saturation at this defect density (Nt = 1×10¹⁵ cm⁻³) — additional thickness captures no further light and costs no additional recombination loss. This differs from the handbook's expected behavior (a peak near 400–600 nm followed by decline), which assumes recombination losses become significant before optical saturation. At this device's relatively low defect density, the diffusion length is long enough that this crossover does not occur within the tested range. 1000 nm was selected as the working optimum for subsequent studies, since it achieves maximum efficiency with the least material, and since higher defect densities tested in Study 2 are expected to penalize unnecessarily thick absorbers.
+- Note on thickness optimum:
+Efficiency rose monotonically from 200–1000 nm, then plateaued exactly at η = 21.45% for 1000, 1200, 1500, and 2000 nm, indicating the absorber has reached full optical saturation at this defect density (Nt = 1×10¹⁵ cm⁻³) — additional thickness captures no further light and costs no additional recombination loss. This differs from the handbook's expected behavior (a peak near 400–600 nm followed by decline), which assumes recombination losses become significant before optical saturation. At this device's relatively low defect density, the diffusion length is long enough that this crossover does not occur within the tested range. 1000 nm was selected as the working optimum for subsequent studies, since it achieves maximum efficiency with the least material, and since higher defect densities tested in Study 2 are expected to penalize unnecessarily thick absorbers.
 
 **Conclusion:** Within the tested range, 1000 nm gives the highest efficiency (21.45%).
 
-**Next step:** Study 2 — bulk defect density sweep, using either 400 nm (handbook default) or 1000 nm (your current best) as the fixed thickness.
+**Next step:** Study 2 — bulk defect density sweep, using either 400 nm (handbook default) or 1000 nm ( current best) as the fixed thickness.
 
 ---------------------
 B.2 Study 2 — **Bulk defect density (the most important study)**
