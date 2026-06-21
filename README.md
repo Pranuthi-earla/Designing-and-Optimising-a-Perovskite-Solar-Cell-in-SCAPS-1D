@@ -296,3 +296,6 @@ Full citation: **Aliaghayee, M. (2023). Optimization of the Perovskite Solar Cel
 
 **Conclusion:** Baseline calibrated and validated. **Phase A complete**, pending supervisor sign-off.
 
+----------------------------------------------------
+
+
