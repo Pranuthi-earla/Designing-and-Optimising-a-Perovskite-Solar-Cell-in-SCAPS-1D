@@ -338,4 +338,180 @@ Efficiency rose monotonically from 200–1000 nm, then plateaued exactly at η =
 ---------------------
 B.2 Study 2 — **Bulk defect density (the most important study)**
 
+1. 10 pow 13- 
+2. 10 pow 14 <img width="1258" height="695" alt="image" src="https://github.com/user-attachments/assets/fea74676-d512-437f-a59d-c78c122e0275" />
+3. 10 pow 16 : <img width="1270" height="707" alt="Screenshot 2026-06-22 001514" src="https://github.com/user-attachments/assets/b8dc5538-ea38-4b09-b758-b2a79249aa29" />
+
+4. 10 pow 17 <img width="1258" height="706" alt="image" src="https://github.com/user-attachments/assets/cad1d65c-251d-45d4-805f-172688e47c18" />
+
+5. 10 pow 18 <img width="1267" height="700" alt="image" src="https://github.com/user-attachments/assets/cde74c24-81e0-4536-87c2-364d3cd53446" />
+
+
+## Study 2 — Final dataset (Bulk defect density, MAPbI₃ thickness = 1000 nm)
+
+| Nt (cm⁻³) | Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 1×10¹³ | 25.7257 | not captured | not captured | 27.91 |
+| 1×10¹⁴ | 25.5205 | 1.1772 | 85.22 | 25.60 |
+| 1×10¹⁵ | 24.3469 | 1.1109 | 79.29 | 21.45 |
+| 1×10¹⁶ | 22.4506 | 1.0476 | 69.96 | 16.45 |
+| 1×10¹⁷ | 19.3424 | 0.9427 | 61.68 | 11.25 |
+| 1×10¹⁸ | 12.9386 | 0.8185 | 54.29 | 5.75 |
+
+**Date:** 21 June 2026
+**Objective:** Determine how absorber defect density (Nt) affects performance, using the Study-1 optimum thickness (1000 nm) (Handbook §B.2).
+
+**Procedure:** Reloaded baseline.def, fixed MAPbI₃ thickness at 1000 nm, varied only Nt across 1×10¹³–1×10¹⁸ cm⁻³ via MAPbI3 → Edit Defect 1. Recorded Jsc, Voc, FF, η for each run.
+
+**Results:** See table and charts above.
+
+**Issue encountered:** I–V panel did not display Voc/FF for the Nt = 1×10¹³ cm⁻³ run despite a clean Jsc/η readout; re-running did not resolve it. This single point is recorded with Jsc and η only.
+
+**Diffusion length context:** At Nt = 1×10¹³ cm⁻³, SCAPS reported Ln = Lp = 7.2 µm — over 7× the 1000 nm absorber thickness, explaining the near-ideal performance at this defect level.
+
+**Observations:**
+- Efficiency declines **gently** from 27.91% → 25.60% → 21.45% as Nt rises from 10¹³ to 10¹⁵ cm⁻³ — the absorber is still "clean enough" that diffusion length comfortably exceeds the 1000 nm thickness.
+- Above **Nt = 10¹⁶ cm⁻³**, efficiency **collapses sharply**: 16.45% → 11.25% → 5.75% across the next two decades. Voc falls in lockstep, from 1.05 V down to 0.82 V.
+- This is the diffusion-length crossover point the handbook describes: once Ln/Lp drops below the 1000 nm absorber thickness, carriers generated deep in the layer can no longer reach the contacts before recombining, and both current and voltage suffer simultaneously.
+<img width="1412" height="542" alt="image" src="https://github.com/user-attachments/assets/c4ed1830-a2d6-4092-af6a-c03ac20f058d" />
+
+**Conclusion:** This confirms the handbook's central lesson of thin-film photovoltaics — absorber material quality (defect density) dominates performance far more than thickness alone. A defect density at or below ~10¹⁵ cm⁻³ is required to sustain high efficiency at 1000 nm absorber thickness; above 10¹⁶ cm⁻³, performance degrades rapidly regardless of other design choices.
+
+---
+
+## Complete diffusion length data
+
+<img width="1412" height="768" alt="image" src="https://github.com/user-attachments/assets/bf6ae221-416c-435f-9592-d6bccefcd6df" />
+
+| Nt (cm⁻³) | τ (ns) | Ln = Lp (µm) | Absorber thickness (µm) | L vs thickness |
+|---|---|---|---|---|
+| 1×10¹³ | 10,000 | 7.2 | 1.0 | L = 7.2× thickness |
+| 1×10¹⁴ | 1,000 | 2.3 | 1.0 | L = 2.3× thickness |
+| 1×10¹⁵ | 100 | 0.72 | 1.0 | **L < thickness** |
+| 1×10¹⁶ | 10 | 0.23 | 1.0 | L ≈ 0.23× thickness |
+| 1×10¹⁷ | 1 | 0.072 | 1.0 | L ≈ 0.072× thickness |
+| 1×10¹⁸ | 0.1 | 0.023 | 1.0 | L ≈ 0.023× thickness |
+
+## This is the key finding — the crossover point, precisely located
+
+Look closely at where **L drops below the absorber thickness (1.0 µm)**: it happens **between Nt = 10¹⁴ and 10¹⁵ cm⁻³** — at 10¹⁴, L = 2.3 µm (still > thickness); at 10¹⁵, L = 0.72 µm (already < thickness).
+
+But here's the subtlety worth highlighting in your report: **efficiency doesn't collapse exactly at this crossover** — at 10¹⁵, where L first dips below thickness, η is still a respectable 21.45%. The **sharp collapse** actually happens later, between **10¹⁵ and 10¹⁶**, when L falls to less than a third of the thickness (0.23 µm vs 1.0 µm). This tells you the cell can tolerate L being *somewhat* shorter than the absorber (since not every carrier needs to travel the full thickness — many are generated close to the junction), but once L drops to less than ~25–30% of the thickness, collection efficiency falls off a cliff.
+
+
+**Diffusion length calculation (handbook step 4, §B.2):**
+
+| Nt (cm⁻³) | τ (ns) | Ln = Lp (µm) | L / thickness ratio |
+|---|---|---|---|
+| 1×10¹³ | 10,000 | 7.2 | 7.2 |
+| 1×10¹⁴ | 1,000 | 2.3 | 2.3 |
+| 1×10¹⁵ | 100 | 0.72 | 0.72 |
+| 1×10¹⁶ | 10 | 0.23 | 0.23 |
+| 1×10¹⁷ | 1 | 0.072 | 0.072 |
+| 1×10¹⁸ | 0.1 | 0.023 | 0.023 |
+
+**Key finding:** The nominal crossover (L = thickness) occurs between Nt = 10¹⁴ and 10¹⁵ cm⁻³. However, efficiency does not collapse immediately at this point — at Nt = 10¹⁵, where L first falls below thickness, η remains a relatively strong 21.45%. The **sharp efficiency collapse** instead occurs between **10¹⁵ and 10¹⁶ cm⁻³**, once L falls below roughly **25–30% of the absorber thickness**. This indicates the cell tolerates moderate carrier loss (most photogeneration occurs near the front junction, so not every carrier must traverse the full 1000 nm), but collection fails catastrophically once the diffusion length becomes a small fraction of the absorber thickness.
+
+**Conclusion:** For a 1000 nm MAPbI₃ absorber, the defect density must be kept at or below **~10¹⁵ cm⁻³** to maintain diffusion length within a tolerable range of the absorber thickness. This is the central, quantitatively-supported finding of Phase B and directly motivates the degradation-pathway ranking in Phase C, where bulk defects are one of four candidate failure mechanisms.
+
+---
+B.3 Study 3 — Absorber doping
+
+## Study 3 — Absorber doping sweep
+
+**Question:** how much should the MAPbI₃ absorber be doped?
+
+### Setup
+1. Reload `baseline.def`.
+2. Set MAPbI₃ thickness to **1000 nm** (carrying forward your Study-1 optimum, same as Study 2).
+3. **Reset the defect density (Nt) back to 1×10¹⁵ cm⁻³** — important, since this study is about doping, not defects, so we don't want Study 2's extreme values bleeding in.
+4. Confirm **Light** illumination and **generator** setting are still correct.
+5. Now vary **only the acceptor density NA** in MAPbI₃, across these 5 values:
+
+| Run | NA (cm⁻³) |
+|---|---|
+| 1 | 1×10¹⁴ |
+| 2 | 1×10¹⁵ |
+| 3 | 1×10¹⁶ (= baseline level) |
+| 4 | 1×10¹⁷ |
+| 5 | 1×10¹⁸ |
+
+### Where to change it
+In the MAPbI3 Layer Properties Panel, change **"shallow uniform acceptor density NA (1/cm³)"** only. Leave ND at 0, leave the defect settings untouched.
+
+### Expected result (handbook)
+A trade-off: higher doping widens the built-in field and lifts Voc, but too much doping narrows the depletion region and shortens carrier collection, pulling Jsc down. Optimum usually sits around 10¹⁶–10¹⁷ cm⁻³.
+
+---
+<img width="1263" height="701" alt="image" src="https://github.com/user-attachments/assets/d9eb7b1c-fc2d-4fbb-930e-0fe0a671d30f" />
+
+
+## Study 3 dataset (final, as tested)
+
+| NA (cm⁻³) | Jsc (mA/cm²) | Voc (V) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 1×10¹⁴ | 25.5693 | 1.0428 | 74.29 | 19.81 |
+| 1×10¹⁵ | 25.6010 | 1.0575 | 78.88 | 21.36 |
+| 1×10¹⁶ (baseline) | 24.3469 | 1.1109 | 79.29 | 21.45 |
+| 1×10¹⁷ | 22.3557 | 1.1731 | 83.87 | 21.99 |
+| 1×10¹⁸ | 21.2202 | not captured | not captured | 22.97 |
+| 1×10¹⁹ | 21.0601 | not captured | not captured | 24.27 |
+
+## A pattern worth naming explicitly
+
+Notice: **Jsc is now decreasing only slightly** (21.2202 → 21.0601, essentially flat) **while η jumped meaningfully** (22.97 → 24.27%). Since η = (Jsc × Voc × FF) / Pin, and Jsc barely moved, **this jump in η must be coming from Voc and/or FF rising** — which are exactly the two values we're missing. This makes recovering them more important here than it was for the single missing point in Study 2.
+
+The trade-off is showing up exactly as expected
+
+Voc rises steadily with doping (1.0428 → 1.0575 → 1.1109 → 1.1731 V) — consistent with a stronger built-in field.
+Jsc falls steadily (25.57 → 25.60 → 24.35 → 22.36 → 21.22 mA/cm²) — consistent with a narrowing depletion region reducing collection.
+FF rises with doping too (74.29 → 78.88 → 79.29 → 83.87%).
+η keeps climbing across your whole tested range (19.81 → 21.36 → 21.45 → 21.99 → 22.97%) — like Study 1, you haven't hit a peak yet; it's still rising at 10¹⁸.
+
+-----------------
+
+## Study 4 dataset — Operating temperature
+
+| Temperature (K) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) |
+|---|---|---|---|---|
+| 280 | 1.1472 | 24.3092 | 79.58 | 22.19 |
+| 300 (baseline) | 1.1109 | 24.3469 | 79.29 | 21.45 |
+| 320 | 1.0742 | 24.4040 | 78.89 | 20.68 |
+| 340 | 1.0372 | 24.4790 | 78.91 | 19.91 |
+| 360 | 1.0000 | 24.5566 | 77.88 | 19.12 |
+
+## Checking the predicted −2 mV/K trend
+
+Let's verify this quantitatively, since the handbook gives you a specific number to check against:
+
+- 280 → 360 K: ΔT = 80 K, ΔVoc = 1.1472 − 1.0000 = 0.1472 V = 147.2 mV
+- Rate = 147.2 mV / 80 K = **−1.84 mV/K**
+
+That's very close to the handbook's expected **−2 mV/K** — an excellent match, well within reasonable simulation variation.
+
+**Jsc rises very slightly** with temperature (24.31 → 24.56 mA/cm²) — a small effect from bandgap narrowing at higher temperature, allowing marginally more absorption. **FF declines gently** (79.58 → 77.88%). **Efficiency falls steadily** (22.19 → 19.12%) as Voc's drop dominates the small Jsc gain.
+
+<img width="1412" height="500" alt="image" src="https://github.com/user-attachments/assets/92dd7dc2-8009-47d3-b152-df4a305b6326" />
+
+
+**Date:** 21 June 2026
+**Objective:** Determine sensitivity to operating temperature (Handbook §B.4).
+**Procedure:** Reloaded baseline.def (thickness 1000 nm, Nt 1×10¹⁵, NA 1×10¹⁶); varied only Temperature on the Action Panel across 280–360 K.
+
+**Results:** See table and charts above.
+
+**Observations:** Voc decreases linearly with temperature at a measured rate of **−1.84 mV/K**, closely matching the handbook's expected −2 mV/K, consistent with rising intrinsic carrier concentration and reverse saturation current at higher temperature. Jsc rises marginally (bandgap narrowing effect), while FF declines gently. Efficiency falls steadily from 22.19% at 280 K to 19.12% at 360 K, a relative drop of ~14% over the 80 K range.
+
+**Conclusion:** Voc is the dominant loss mechanism under thermal stress, exactly as the handbook predicts. This is directly relevant to real-world deployment — a cell operating at 360 K (a plausible rooftop temperature under Indian summer conditions) loses over 3 percentage points of absolute efficiency relative to standard 300 K test conditions.
+
+---
+
+
+Ranking parameters by their impact on efficiency across the ranges tested:
+
+1. **Bulk defect density** — η ranged from 27.91% down to 5.75% (a ~22-point swing) — by far the most sensitive parameter, confirming the handbook's framing of this as "the most important study."
+2. **Absorber thickness** — η ranged from 15.87% to 21.45% (~5.6-point swing), though it plateaued rather than peaking.
+3. **Absorber doping** — η ranged from 19.81% to 24.27% (~4.5-point swing, still rising at the edge of the tested range).
+4. **Operating temperature** — η ranged from 19.12% to 22.19% (~3.1-point swing) — the mildest effect of the four, though still practically meaningful for real-world deployment.
+
 
