@@ -258,14 +258,10 @@ All four values fall within the handbook's expected ranges (Jsc 22–24, Voc 1.0
 
 <img width="1267" height="700" alt="image" src="https://github.com/user-attachments/assets/0ce8638a-e559-41df-a3cd-4b914d015119" />
 
-Cite this paper explicitly in your related-work paragraph with a one-line differentiation, something like: "While prior SCAPS-based studies (e.g., Kumar & Gorai) examine defect-driven degradation across different perovskite compositions, this work instead compares multiple distinct degradation mechanisms within a single device and ranks them by impact, concluding with a prioritized mitigation recommendation." That's an honest, defensible novelty statement — narrow but real.
+-------------------
+ Novelty : "While prior SCAPS-based studies (e.g., Kumar & Gorai) examine defect-driven degradation across different perovskite compositions, this work instead compares multiple distinct degradation mechanisms within a single device and ranks them by impact, concluding with a prioritized mitigation recommendation." 
 -Elucidating the Effect of Defect Density in the Degradation of Methylammonium Lead Iodide and Triple Cation-Based Perovskite Solar Cells
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
-
--------------
-
-
-## How this compares to your project
 
 | Their paper | Your project |
 |---|---|
@@ -273,3 +269,30 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
 | Compares **two materials** (MAPbI₃ vs. triple-cation) on the *same* defect mechanism | Compares **four different loss mechanisms** on the *same* material |
 | No mention of a ranking/restoration step | Includes a **restore-one-pathway-at-a-time** recovery ranking → "protect this first" |
 | Framed as a materials-comparison study | Framed as a **reliability/prioritization** study for one device |
+
+---------------
+
+
+# Day 7 report entry
+
+
+##  comparison — your baseline vs. this paper's Table V
+
+**Calibration.** The simulated baseline was compared against an experimental glass/FTO/TiO₂/MAPbI₃/Spiro-OMeTAD/Au perovskite solar cell reported by Aliaghayee (2023), which is structurally identical to the device modeled in this work. The experimental device achieved Jsc = 23.31 mA/cm², Voc = 1.172 V, FF = 76.51%, and η = 20.90%. The simulated baseline in this study yielded Jsc = 22.224 mA/cm² (−4.7%), Voc = 1.1214 V (−4.3%), FF = 80.20% (+4.8%), and η = 19.99% (−4.4%) relative to experiment — all four parameters within 5% of the published value. For reference, Aliaghayee's own SCAPS-1D simulation of the same structure reported Jsc = 22.55 mA/cm², Voc = 1.130 V, FF = 81.15%, η = 20.60%, closely matching the present baseline and providing independent cross-validation of the simulation methodology. This level of agreement confirms the baseline model is well calibrated and suitable as the foundation for the parameter studies in Phase B.
+
+| Parameter | Your simulated baseline | Aliaghayee — Experimental | Aliaghayee — Simulated | Your % diff vs. experimental |
+|---|---|---|---|---|
+| Jsc (mA/cm²) | 22.224 | 23.31 | 22.55 | −4.7% |
+| Voc (V) | 1.1214 | 1.172 | 1.130 | −4.3% |
+| FF (%) | 80.20 | 76.51 | 81.15 | +4.8% |
+| η (%) | 19.99 | 20.90 | 20.60 | −4.4% |
+
+
+**Reference selected:** Aliaghayee, M. (2023), *J. Electron. Mater.* 52, 2475–2491 — identical device architecture (glass/FTO/TiO₂/MAPbI₃/Spiro-OMeTAD/Au), with both experimental and SCAPS-simulated benchmark values available for comparison.
+
+Full citation: **Aliaghayee, M. (2023). Optimization of the Perovskite Solar Cell Design with Layer Thickness Engineering for Improving the Photovoltaic Response Using SCAPS-1D. *Journal of Electronic Materials*, 52, 2475–2491.**
+
+**Result:** All four parameters within 5% of experimental values; close match also to the paper's own SCAPS simulation.
+
+**Conclusion:** Baseline calibrated and validated. **Phase A complete**, pending supervisor sign-off.
+
