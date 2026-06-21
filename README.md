@@ -261,3 +261,15 @@ All four values fall within the handbook's expected ranges (Jsc 22–24, Voc 1.0
 Cite this paper explicitly in your related-work paragraph with a one-line differentiation, something like: "While prior SCAPS-based studies (e.g., Kumar & Gorai) examine defect-driven degradation across different perovskite compositions, this work instead compares multiple distinct degradation mechanisms within a single device and ranks them by impact, concluding with a prioritized mitigation recommendation." That's an honest, defensible novelty statement — narrow but real.
 -Elucidating the Effect of Defect Density in the Degradation of Methylammonium Lead Iodide and Triple Cation-Based Perovskite Solar Cells
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5112960
+
+-------------
+
+
+## How this compares to your project
+
+| Their paper | Your project |
+|---|---|
+| Single pathway: **bulk + interface defect density** only | **Four pathways**: bulk defects, interface defects, series resistance, shunt resistance |
+| Compares **two materials** (MAPbI₃ vs. triple-cation) on the *same* defect mechanism | Compares **four different loss mechanisms** on the *same* material |
+| No mention of a ranking/restoration step | Includes a **restore-one-pathway-at-a-time** recovery ranking → "protect this first" |
+| Framed as a materials-comparison study | Framed as a **reliability/prioritization** study for one device |
