@@ -444,7 +444,7 @@ A trade-off: higher doping widens the built-in field and lifts Voc, but too much
 
 ---
 <img width="1263" height="701" alt="image" src="https://github.com/user-attachments/assets/d9eb7b1c-fc2d-4fbb-930e-0fe0a671d30f" />
-
+10 pow 18.. profile not showing voc and ff
 <img width="1272" height="705" alt="image" src="https://github.com/user-attachments/assets/1edad509-1f87-416e-af88-421dd1a23dd5" />
 
 ## Study 3 dataset (final, as tested)
