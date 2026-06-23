@@ -568,4 +568,135 @@ Efficiency drops from 100% to just **7.3%** of healthy across 5 decades of defec
 **Conclusion:** Bulk defects are confirmed as a severe degradation pathway, consistent with Study 2's findings. This pathway will be compared directly against interface defects, series resistance, and shunt resistance to establish the four-pathway ranking.
 
 ---
+10^8:
+
+<img width="1258" height="705" alt="image" src="https://github.com/user-attachments/assets/fd526fb9-5425-4e20-bc7b-0f2ba8467587" />
+
+
+## Pathway 2 — Interface defects (complete)
+
+| Interface Nt (cm⁻²) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) | % of healthy (21.99%) |
+|---|---|---|---|---|---|
+| 1×10⁸ | 1.1731 | 22.3557 | 83.87 | 21.99 | 100.0% |
+| 1×10⁹ | 1.1731* | 22.3557 | 83.86 | 21.99 | 100.0% |
+| 1×10¹⁰ | 1.1730 | 22.3557 | 83.86 | 21.99 | 100.0% |
+| 1×10¹¹ | 1.1728 | 22.3573 | 83.76 | 21.96 | 99.9% |
+| 1×10¹² | 1.1700 | 22.3557 | 82.88 | 21.68 | 98.6% |
+| 1×10¹³ | 1.1447 | 22.3557 | 79.69 | 20.39 | 92.7% |
+
+
+## This is a genuinely interesting and important contrast to Pathway 1
+
+Look at how mild this is compared to bulk defects: even at the most severe interface defect density tested (10¹³ cm⁻²), efficiency only drops to **92.7% of healthy** — barely a dent. Compare this to Pathway 1, where the same relative severity (5th of 6 steps, 10¹⁸ cm⁻³) had already crushed efficiency to **20.6% of healthy**.
+
+**Jsc barely moves at all** across the entire interface sweep (22.3557 mA/cm² essentially constant) — interface defects at this junction aren't blocking light absorption or bulk collection, they're purely affecting **recombination right at the junction**, which shows up almost entirely through **Voc and FF** declining (Voc: 1.1731→1.1447 V, FF: 83.87→79.69%) while Jsc stays flat.
+
+## This is shaping up to be a strong contrast for your ranking figure
+
+So far: **bulk defects are catastrophic, interface defects (at this TiO₂/MAPbI₃ junction, at these tested densities) are comparatively mild.** This is actually a notable, reportable finding — it suggests this particular device's TiO₂/MAPbI₃ band alignment is fairly forgiving of interface recombination, at least up to 10¹³ cm⁻².
+
+## Day 20–22 — Report entry: Pathway 2 (Interface defects)
+
+**Date:** 22 June 2026
+**Objective:** Degrade Pathway 2 (TiO₂/MAPbI₃ interface defect density) and measure efficiency response.
+**Procedure:** Reloaded `optimised.def`; confirmed bulk Nt reset to 1×10¹⁵ cm⁻³ (correcting a carryover error from Pathway 1 — see note below); added interface defect at TiO₂/MAPbI₃ junction (neutral, σn=σp=1.00E-19 cm², mid-gap); swept total interface density from 1×10⁸ to 1×10¹³ cm⁻².
+
+**Methodological note:** Initial Step 1 attempt was contaminated by leftover bulk Nt = 1×10¹⁹ cm⁻³ from the final Pathway 1 run; corrected before logging any results. A standing pre-run checklist was introduced to prevent cross-pathway contamination in subsequent studies.
+
+**Results:** See table above.
+
+**Observations:** Interface defects produce comparatively mild degradation across the tested range — even at the highest density (10¹³ cm⁻²), efficiency remains at 92.7% of healthy. Degradation manifests almost entirely through Voc and FF, while Jsc remains essentially unchanged, indicating this defect acts purely as a junction-recombination loss rather than a transport/collection barrier.
+
+**Comparison to Pathway 1:** At equivalent relative severity (5th of 6 tested steps), bulk defects had already reduced efficiency to 20.6% of healthy, while interface defects at the same relative position reduced efficiency only to 98.6%. **Bulk defects are dramatically more damaging than interface defects at this junction, within the ranges tested.**
+
+---
+R=60 ohm-cm
+
+<img width="1282" height="711" alt="image" src="https://github.com/user-attachments/assets/7bbcdeee-bb4b-4e9f-a863-6e566a487555" />
+
+
+## Pathway 3 — Series resistance (complete)
+
+| Rs (Ω·cm²) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) | % of healthy (21.99%) |
+|---|---|---|---|---|---|
+| 0 (healthy) | 1.1731 | 22.3557 | 83.87 | 21.99 | 100.0% |
+| 1 | 1.1732 | 22.3422 | 82.26 | 21.56 | 98.0% |
+| 5 | 1.1735 | 22.2167 | 75.87 | 19.84 | 90.2% |
+| 10 | 1.1736 | 22.2134 | 67.92 | 17.71 | 80.5% |
+| 20 | 1.1736 | 22.0516 | 52.87 | 13.68 | 62.2% |
+| 40 | 1.1737 | 21.6213 | 31.69 | 8.04 | 36.6% |
+| 60 | 1.1737 | 18.4516 | 22.48 | 4.87 | 22.1% |
+
+
+**Voc stays essentially flat the entire time** (1.1731 → 1.1737 V — within noise) — exactly correct, since series resistance has no effect at open-circuit (zero current means zero voltage drop across Rs).
+
+**Jsc stays nearly flat until Rs=40+**, then starts dropping (22.36 → 18.45 by Rs=60) — series resistance eventually does suppress photocurrent at very high values, but this is a late-stage effect.
+
+**FF is where all the damage happens** — and it happens dramatically: 83.87% → 22.48%, nearly destroyed. This makes complete physical sense: series resistance directly "rounds off" the sharp knee of the J-V curve that defines a high fill factor, turning a sharp rectangular-ish curve into a sloped, lossy one.
+
+## How this compares to the other pathways so far
+
+At the same relative position (5th of 6 steps, Rs=40), efficiency is at **36.6% of healthy** — meaningfully worse than interface defects (98.6% at equivalent position) but notably **less catastrophic than bulk defects** (20.6% at equivalent position). Series resistance sits in between: a real, serious degradation mechanism, but not quite as devastating as uncontrolled bulk defects.
+
+## Day 23–25 — Report entry: Pathway 3 (Series resistance)
+
+**Date:** 23 June 2026
+**Objective:** Degrade Pathway 3 (series resistance) and measure efficiency response.
+**Procedure:** Reloaded `optimised.def`; confirmed bulk Nt and interface defect reset to healthy/negligible levels; enabled series resistance on Action Panel; swept Rs from 1 to 60 Ω·cm².
+
+**Results:** See table above.
+
+**Observations:** Series resistance degrades the cell almost exclusively through fill factor — FF collapses from 83.87% to 22.48% (a 73% relative drop) across the tested range, while Voc remains essentially unchanged throughout (consistent with Rs having zero effect at the open-circuit condition) and Jsc only drops meaningfully at the highest Rs values tested (≥40 Ω·cm²).
+
+**Conclusion:** Series resistance is a serious but intermediate-severity degradation pathway — more damaging than interface defects at equivalent severity, but less catastrophic than bulk defects. The mechanism is distinct and diagnostically clear: a collapsing FF with stable Voc and Jsc is the signature of a series-resistance-dominated failure mode, useful for real-world fault diagnosis.
+
+---
+rsh= 10
+
+<img width="1258" height="706" alt="image" src="https://github.com/user-attachments/assets/d228ee80-bc19-403b-a9c0-985584f0637a" />
+
+
+## Pathway 4 — Shunt resistance (complete)
+
+| Rsh (Ω·cm²) | Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) | % of healthy (21.99%) |
+|---|---|---|---|---|---|
+| ∞ (healthy) | 1.1731 | 22.3557 | 83.87 | 21.99 | 100.0% |
+| 1×10⁵ | 1.1730 | 22.3557 | 83.82 | 21.98 | 99.9% |
+| 1×10⁴ | 1.1728 | 22.3557 | 83.45 | 21.88 | 99.5% |
+| 1×10³ | 1.1708 | 22.3557 | 79.74 | 20.87 | 94.9% |
+| 1×10² | 1.1449 | 22.3557 | 44.48 | 11.38 | 51.8% |
+| 50 | 1.0478 | 22.3557 | 25.75 | 6.03 | 27.4% |
+| 10 | 0.2221 | 22.3557 | 24.84 | 1.23 | 5.6% |
+
+
+**Jsc is completely constant** (22.3557 mA/cm² at every single step) — shunt resistance has zero effect on short-circuit current, which makes sense since it's a voltage-dependent leakage path that matters most away from V=0.
+
+**The collapse is extremely nonlinear** — efficiency barely moves through Rsh=10³ (still 94.9% of healthy), then **falls off a cliff** between 10³ and 10² (94.9% → 51.8%), and by Rsh=10, **Voc itself has collapsed from 1.05 V to just 0.22 V** — an enormous, almost catastrophic drop. This is the classic signature of a shunt path becoming low enough to act like an internal short circuit, bleeding away the photogenerated current internally before it can build up voltage at the terminals.
+
+## How this compares across all four pathways now
+
+At the "5th of 6 steps" comparison point used for the other three pathways:
+- Bulk defects: 20.6% of healthy
+- Interface defects: 98.6% of healthy
+- Series resistance: 36.6% of healthy
+- **Shunt resistance: 27.4% of healthy**
+
+Shunt resistance is now looking like the **second most damaging pathway**, close behind bulk defects, and notably worse than series resistance at equivalent relative severity.
+
+Let's get the full four-pathway comparison chart built now — this is your headline figure.## Day 26–28 — Report entry: Pathway 4 (Shunt resistance) + Four-pathway ranking summary
+
+**Pathway 4 results:** See table above. Efficiency holds nearly steady through Rsh=10³ (94.9% of healthy), then collapses sharply below 10² — by Rsh=10, Voc itself has fallen from 1.05 V to 0.22 V, indicating the shunt path has become low enough to internally short-circuit a significant fraction of photogenerated current before it can develop terminal voltage. Jsc remains completely unaffected across the entire range, confirming shunt resistance acts purely as a voltage-domain leakage mechanism.
+
+## The four-pathway ranking (Phase C headline result)
+
+Ranking pathways by damage at equivalent relative severity (final/most-degraded tested step):
+
+1. **Bulk defects — most damaging.** Efficiency falls to 7.3% of healthy at the most severe step tested.
+2. **Shunt resistance — second most damaging.** Falls to 5.6% of healthy at the most severe step — comparably catastrophic to bulk defects, though the collapse is more abrupt/nonlinear (stays near 100% until late, then crashes).
+3. **Series resistance — moderate.** Falls to 22.1% of healthy — serious, but more gradual and predictable than the top two.
+4. **Interface defects — mildest, by far.** Only falls to 92.7% of healthy even at the highest tested density — this TiO₂/MAPbI₃ junction is notably tolerant of interface recombination within the ranges tested.
+
+**Key mechanistic distinction:** Bulk defects degrade through *both* Jsc and Voc simultaneously (carriers can't be collected). Series resistance degrades almost purely through FF. Shunt resistance degrades purely through Voc, but with a sharp nonlinear onset rather than a gradual decline. Interface defects degrade mildly through Voc and FF together. This gives you a genuine **diagnostic fingerprint** for each failure mode — useful for the "protect this first" recommendation in §C.3.
+
+---
 
