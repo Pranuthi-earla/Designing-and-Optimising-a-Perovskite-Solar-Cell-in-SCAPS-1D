@@ -700,3 +700,106 @@ Ranking pathways by damage at equivalent relative severity (final/most-degraded 
 
 ---
 
+## Fully-degraded cell — baseline for restoration study
+<img width="1252" height="717" alt="image" src="https://github.com/user-attachments/assets/52daffde-bb76-4018-a2ba-83161b9f5bf0" />
+
+
+| Voc (V) | Jsc (mA/cm²) | FF (%) | η (%) | % of healthy (21.99%) |
+|---|---|---|---|---|
+| 0.9269 | 10.5530 | 27.57 | 2.70 | 12.3% |
+
+This makes complete sense — combining bulk defects (40.4% alone), series resistance (62.2% alone), and shunt resistance past its cliff (51.8% alone) compounds multiplicatively rather than additively, crushing the cell down to just **12.3% of healthy performance**. All three visible symptoms are present at once: Voc is suppressed (shunt + bulk defects), Jsc is suppressed (bulk defects), and FF is devastated (series + shunt resistance combined).
+
+**Save this now as `degraded.def`** before proceeding — this is your fixed "sick patient" reference point for every restoration run.
+
+## Day 29–31 — Report entry: Fully-degraded cell
+
+**Date:** 23 June 2026
+**Objective:** Build a combined fully-degraded cell as the baseline for the restore-one-at-a-time recovery ranking (Handbook §C.3).
+**Configuration:** Bulk Nt = 1×10¹⁷ cm⁻³, interface defect density = 1×10¹³ cm⁻², Rs = 20 Ω·cm², Rsh = 100 Ω·cm² — all four pathways simultaneously degraded from `optimised.def`.
+**Result:** Voc = 0.9269 V, Jsc = 10.5530 mA/cm², FF = 27.57%, η = 2.70% (12.3% of healthy). Saved as `degraded.def`.
+**Observation:** Combined degradation is far more severe than any single pathway alone — the four mechanisms compound, consistent with their largely independent loss mechanisms (carrier collection, junction recombination, FF-rounding, and voltage-domain shunting all acting simultaneously).
+
+--------------
+Now — Restoration Run 1: Fix bulk defects only
+
+1.Reload degraded.def (not optimised.def — we restore from the sick state).
+2.Change only bulk Nt back to 1×10¹⁵ cm⁻³ (healthy).
+3.Leave interface defect at 10¹³, Rs at 20, Rsh at 100 — these stay broken.
+4.Run and record Jsc/Voc/FF/η.Voc (V)Jsc (mA/cm²)FF (%)η (%)% of healthy1.108418.423440.988.3738.1%
+
+Recovery from fixing bulk defects alone. A substantial recovery — both Voc and Jsc bounce back significantly, confirming bulk defects were indeed suppressing carrier collection on top of everything else.
+
+<img width="1260" height="702" alt="image" src="https://github.com/user-attachments/assets/2bdc0899-a442-44e5-816c-2a9e02749346" />
+
+-------------------
+Restoration Run 2 — Fix interface defects only
+
+
+1.Reload degraded.def fresh again (important — don't build on top of R1's state).
+2.This time, leave bulk Nt at 10¹⁷ (still broken).
+3.Remove/reset only the interface defect (back to negligible/removed).
+4.Leave Rs at 20, Rsh at 100 — still broken.
+5.Run and record Jsc/Voc/FF/η.
+
+<img width="1262" height="693" alt="image" src="https://github.com/user-attachments/assets/d4816572-62b4-4e14-b571-33883335c631" />
+
+Recovery from fixing interface defects alone: 2.70% → 2.70% = essentially no recovery at all. Compare this to the degraded baseline (Voc 0.9269, Jsc 10.5530, FF 27.57, η 2.70) — Voc shifted very slightly (0.9269 → 0.9327), but η is unchanged to two decimal places, and Jsc is identical.
+This makes complete physical sense, and it's a strong, consistent finding
+This matches exactly what Pathway 2 told you on its own: interface defects at the TiO₂/MAPbI₃ junction are the mildest pathway by far (only dropping efficiency to 92.7% of healthy even at maximum tested severity, alone). So fixing this one pathway, while three much more damaging pathways remain broken, recovers essentially nothing — the other three mechanisms are completely dominating the cell's behavior, and interface defects were never the bottleneck.
+
+Restoration Run 3 — Fix series resistance only
+
+1.Reload degraded.def fresh.
+2.Leave bulk Nt = 10¹⁷ (broken), interface defect = 10¹³ (broken), Rsh = 100 (broken).
+3.Fix only Rs — set Series resistance to "no" (or Rs = 0).
+4.Run and record Jsc/Voc/FF/η.
+
+<img width="1257" height="705" alt="image" src="https://github.com/user-attachments/assets/0d9ffafb-ad4b-44a1-aa35-9957e233833d" />
+Recovery from fixing series resistance alone: 2.70% → 3.42% = +0.72 percentage points. A modest recovery — Jsc improves somewhat (10.55 → 13.18 mA/cm²) since removing Rs lets more current flow, but FF and Voc barely move, because bulk defects and shunt resistance are still actively suppressing those.
+
+Restoration Run 4 — Fix shunt resistance only
+
+1.Reload degraded.def fresh.
+2.Leave bulk Nt = 10¹⁷ (broken), interface defect = 10¹³ (broken), Rs = 20 (broken).
+3.Fix only Rsh — set Shunt resistance to "no" (or Rsh back to its very high default, 1.00E+30).
+4.Run and record Jsc/Voc/FF/η.
+
+<img width="1268" height="701" alt="image" src="https://github.com/user-attachments/assets/dcb480f6-da92-428a-8b1a-446a52b1c317" />
+
+Recovery from fixing shunt resistance alone: 2.70% → 6.89% = +4.19 percentage points. A large recovery — second only to bulk defects, and far ahead of series resistance or interface defects.
+
+-----------------------
+
+## Complete restoration ranking — your "protect this first" headline result
+
+| Rank | Restored pathway | η after fix (%) | Recovery (pts) | % of healthy recovered |
+|---|---|---|---|---|
+| 🥇 1 | **Bulk defects** | 8.37 | **+5.67** | 38.1% |
+| 🥈 2 | **Shunt resistance** | 6.89 | **+4.19** | 31.3% |
+| 🥉 3 | **Series resistance** | 3.42 | +0.72 | 15.5% |
+| 4 | **Interface defects** | 2.70 | +0.00 | 12.3% (no change) |
+
+This is an excellent, clean, well-differentiated result — exactly what makes a "protect this first" conclusion credible rather than hand-wavy.
+
+## Day 32–35 — Report entry: Restoration ranking ("Protect this first")
+
+**Date:** 23 June 2026
+**Objective:** From the fully-degraded cell, restore each pathway individually to determine recovery priority (Handbook §C.3).
+
+**Procedure:** Reloaded `degraded.def` for each run; restored exactly one pathway to its healthy value while leaving the other three degraded; recorded Jsc/Voc/FF/η.
+
+**Results:** See table and chart above.
+<img width="1404" height="612" alt="image" src="https://github.com/user-attachments/assets/6f57c850-e679-49ff-a355-5f1340d55771" />
+
+
+**"Protect this first" ranking:**
+1. **Bulk defects (highest priority)** — restoring alone recovers +5.67 percentage points, the single largest gain available. Consistent with Pathway 1 being the most damaging mechanism in isolation as well.
+2. **Shunt resistance (second priority)** — recovers +4.19 points, closely behind bulk defects. Notable because Pathway 4 in isolation showed a sharp nonlinear cliff, and that same severity continues to dominate even in combination with other defects.
+3. **Series resistance (lower priority)** — recovers only +0.72 points when fixed alone, since bulk defects and shunt resistance remain bottlenecking the cell regardless.
+4. **Interface defects (lowest priority)** — recovers +0.00 points; entirely masked by the other three mechanisms, consistent with this pathway being the mildest even in isolation (Pathway 2 result).
+
+**Conclusion (headline novel finding):** For this device, a fabricator or process engineer should prioritize controlling **bulk defect density** first, followed closely by **shunt-path control** (e.g., pinhole/edge leakage prevention), as these two mechanisms account for nearly all of the recoverable efficiency in a degraded cell. Series resistance control offers modest benefit only after the top two are addressed, while interface engineering at this TiO₂/MAPbI₃ junction offers negligible benefit unless other degradation mechanisms are already under control.
+
+---
+
